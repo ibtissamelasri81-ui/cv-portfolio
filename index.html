@@ -5,109 +5,115 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>CV Ibtissam El Asri</title>
   <script src="https://cdn.tailwindcss.com"></script>
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lucide@0.487.0/dist/lucide.min.css">
+  <script src="https://cdn.jsdelivr.net/npm/lucide@0.487.0/dist/lucide.min.js"></script>
+  <style>
+    @media print {
+      body { background: white; }
+      .no-print { display: none; }
+    }
+  </style>
 </head>
 <body class="bg-gray-100 font-sans">
 
   <div class="min-h-screen flex justify-center p-6">
-    <div class="bg-white shadow-xl p-8 w-full max-w-4xl border-t-8 border-blue-600">
+    <div class="bg-white shadow-xl w-full max-w-5xl border-t-8 border-blue-600 flex flex-col md:flex-row">
 
-      <!-- Header -->
-      <div class="text-center mb-8">
-        <h1 class="text-4xl font-bold text-gray-800">Ibtissam El Asri</h1>
-        <p class="text-gray-600 mt-1 flex justify-center items-center gap-2">
-          📍 Salé Al Jadida – Maroc
-        </p>
-        <p class="text-gray-600 mt-1 flex justify-center items-center gap-2">
-          📞 +212 672 907 305
-        </p>
-        <p class="text-gray-600 mt-1 flex justify-center items-center gap-2">
-          ✉️ ibtissamelasri81@gmail.com
-        </p>
-        <p class="mt-2">
-          🌐 <a href="https://www.kaggle.com/ibtissamelasri12" class="text-blue-600 underline">Kaggle / Projets en ligne</a>
-        </p>
+      <!-- Colonne gauche -->
+      <div class="bg-gray-50 md:w-1/3 p-6 space-y-6">
+        <!-- Infos personnelles -->
+        <div class="text-center space-y-2">
+          <h1 class="text-2xl font-bold text-gray-800">Ibtissam El Asri</h1>
+          <p class="flex items-center gap-2 text-gray-600"><i data-lucide="map-pin"></i> Salé Al Jadida – Maroc</p>
+          <p class="flex items-center gap-2 text-gray-600"><i data-lucide="phone"></i> +212 672 907 305</p>
+          <p class="flex items-center gap-2 text-gray-600"><i data-lucide="mail"></i> ibtissamelasri81@gmail.com</p>
+          <p class="flex items-center gap-2 text-blue-600"><i data-lucide="globe"></i> <a href="https://www.kaggle.com/ibtissamelasri12" target="_blank">Kaggle / Projets</a></p>
+        </div>
+
+        <!-- Compétences -->
+        <section>
+          <h2 class="text-xl font-semibold mb-2 flex items-center gap-2"><i data-lucide="tool"></i> Compétences</h2>
+          <ul class="space-y-2 text-gray-700 text-sm">
+            <li><strong>Marketing:</strong> Marketing digital, techniques commerciales, comportement du consommateur</li>
+            <li><strong>Bureautique:</strong> Word, Excel, PowerPoint</li>
+            <li><strong>Analyse de données:</strong> SPSS, NVivo</li>
+            <li><strong>Gestion de projet:</strong> Diagramme de Gantt</li>
+            <li><strong>Design:</strong> Canva</li>
+            <li><strong>Web:</strong> Création d’un site web (projet académique)</li>
+          </ul>
+        </section>
+
+        <!-- Langues -->
+        <section>
+          <h2 class="text-xl font-semibold mb-2 flex items-center gap-2"><i data-lucide="globe"></i> Langues</h2>
+          <ul class="space-y-1 text-gray-700 text-sm">
+            <li>Arabe: Langue maternelle</li>
+            <li>Français: Bon niveau</li>
+            <li>Anglais: Niveau intermédiaire</li>
+          </ul>
+        </section>
       </div>
 
-      <!-- Profil -->
-      <section class="mb-6">
-        <h2 class="text-2xl font-semibold mb-2">Profil</h2>
-        <p class="text-gray-700">
-          Étudiante en deuxième année de DUT, spécialité Marketing Digital et Commercial,
-          passionnée par la communication et le digital. Créative, organisée et orientée résultats,
-          je m’intéresse à la création de contenus, à la promotion de marques et à la relation client.
-          Mon objectif est d’attirer l’attention du consommateur, de valoriser l’image de l’entreprise
-          et de contribuer efficacement à ses actions marketing et commerciales lors d’un stage de
-          deux mois.
-        </p>
-      </section>
+      <!-- Colonne droite -->
+      <div class="md:w-2/3 p-6 space-y-6">
+        <!-- Profil -->
+        <section>
+          <h2 class="text-2xl font-semibold mb-2 flex items-center gap-2"><i data-lucide="users"></i> Profil</h2>
+          <p class="text-gray-700 text-sm">
+            Étudiante en deuxième année de DUT, spécialité Marketing Digital et Commercial,
+            passionnée par la communication et le digital. Créative, organisée et orientée résultats,
+            je m’intéresse à la création de contenus, à la promotion de marques et à la relation client.
+            Mon objectif est d’attirer l’attention du consommateur, de valoriser l’image de l’entreprise
+            et de contribuer efficacement à ses actions marketing et commerciales lors d’un stage de
+            deux mois.
+          </p>
+        </section>
 
-      <!-- Formation -->
-      <section class="mb-6">
-        <h2 class="text-2xl font-semibold mb-2">Formation</h2>
-        <ul class="space-y-2">
-          <li class="p-3 bg-gray-50 rounded shadow-sm">
-            <strong>École Supérieure de Technologie de Salé (ESTS)</strong> – DUT Marketing Digital et Commercial (2025 – En cours)
-          </li>
-          <li class="p-3 bg-gray-50 rounded shadow-sm">
-            <strong>Lycée Mohamed El Bardouzi</strong> – Baccalauréat Sciences Économiques (2024)
-          </li>
-        </ul>
-      </section>
-
-      <!-- Compétences -->
-      <section class="mb-6">
-        <h2 class="text-2xl font-semibold mb-2">Compétences</h2>
-        <div class="grid md:grid-cols-2 gap-4">
-          <div class="p-3 bg-gray-50 rounded shadow-sm"><strong>Marketing:</strong> Marketing digital, techniques commerciales, comportement du consommateur</div>
-          <div class="p-3 bg-gray-50 rounded shadow-sm"><strong>Bureautique:</strong> Word, Excel, PowerPoint</div>
-          <div class="p-3 bg-gray-50 rounded shadow-sm"><strong>Analyse de données:</strong> SPSS, NVivo</div>
-          <div class="p-3 bg-gray-50 rounded shadow-sm"><strong>Gestion de projet:</strong> Diagramme de Gantt</div>
-          <div class="p-3 bg-gray-50 rounded shadow-sm"><strong>Design:</strong> Canva</div>
-          <div class="p-3 bg-gray-50 rounded shadow-sm"><strong>Web:</strong> Création d’un site web (projet académique)</div>
-        </div>
-      </section>
-
-      <!-- Expérience professionnelle -->
-      <section class="mb-6">
-        <h2 class="text-2xl font-semibold mb-2">Expérience professionnelle</h2>
-        <div class="p-3 bg-gray-50 rounded shadow-sm">
-          <strong>Autohaus MBH – Stage Service Après-Vente (Marketing et Commercial), Rabat (Juin – Juillet 2025)</strong>
-          <ul class="list-disc list-inside mt-2 text-gray-700 space-y-1">
-            <li>Enregistrement des marchandises utilisées pour chaque véhicule</li>
-            <li>Gestion et suivi du stock</li>
-            <li>Enregistrement des factures, devis, clients, véhicules et services</li>
-            <li>Utilisation d’Excel, du site Omega (RMA) et de l’application Autohaus</li>
-            <li>Suivi des procédures pour clients normaux et RMA</li>
+        <!-- Formation -->
+        <section>
+          <h2 class="text-2xl font-semibold mb-2 flex items-center gap-2"><i data-lucide="book-open"></i> Formation</h2>
+          <ul class="space-y-2 text-gray-700 text-sm">
+            <li><strong>École Supérieure de Technologie de Salé (ESTS)</strong> – DUT Marketing Digital et Commercial (2025 – En cours)</li>
+            <li><strong>Lycée Mohamed El Bardouzi</strong> – Baccalauréat Sciences Économiques (2024)</li>
           </ul>
+        </section>
+
+        <!-- Expérience professionnelle -->
+        <section>
+          <h2 class="text-2xl font-semibold mb-2 flex items-center gap-2"><i data-lucide="briefcase"></i> Expérience professionnelle</h2>
+          <div class="text-gray-700 text-sm">
+            <strong>Autohaus MBH – Stage Service Après-Vente (Marketing et Commercial), Rabat (Juin – Juillet 2025)</strong>
+            <ul class="list-disc list-inside mt-2 space-y-1">
+              <li>Enregistrement des marchandises utilisées pour chaque véhicule</li>
+              <li>Gestion et suivi du stock</li>
+              <li>Enregistrement des factures, devis, clients, véhicules et services</li>
+              <li>Utilisation d’Excel, du site Omega (RMA) et de l’application Autohaus</li>
+              <li>Suivi des procédures pour clients normaux et RMA</li>
+            </ul>
+          </div>
+        </section>
+
+        <!-- Centres d’intérêt -->
+        <section>
+          <h2 class="text-2xl font-semibold mb-2 flex items-center gap-2"><i data-lucide="star"></i> Centres d’intérêt</h2>
+          <p class="text-gray-700 text-sm">Développement personnel, nouvelles technologies, événements culturels et sportifs</p>
+        </section>
+
+        <!-- Bouton PDF -->
+        <div class="text-center mt-4 no-print">
+          <button onclick="window.print()" class="bg-blue-600 text-white px-6 py-2 rounded-lg hover:bg-blue-700 transition font-semibold">
+            Télécharger / Imprimer PDF
+          </button>
         </div>
-      </section>
-
-      <!-- Langues -->
-      <section class="mb-6">
-        <h2 class="text-2xl font-semibold mb-2">Langues</h2>
-        <ul class="list-disc list-inside text-gray-700 space-y-1">
-          <li>Arabe: Langue maternelle</li>
-          <li>Français: Bon niveau</li>
-          <li>Anglais: Niveau intermédiaire</li>
-        </ul>
-      </section>
-
-      <!-- Centres d’intérêt -->
-      <section class="mb-6">
-        <h2 class="text-2xl font-semibold mb-2">Centres d’intérêt</h2>
-        <p class="text-gray-700">Développement personnel, nouvelles technologies, événements culturels et sportifs</p>
-      </section>
-
-      <!-- Bouton PDF -->
-      <div class="text-center mt-8">
-        <button onclick="window.print()" class="bg-blue-600 text-white px-6 py-2 rounded-lg hover:bg-blue-700 transition font-semibold">
-          Télécharger / Imprimer CV
-        </button>
       </div>
 
     </div>
   </div>
+
+  <script>
+    window.addEventListener('DOMContentLoaded', () => {
+      lucide.createIcons();
+    });
+  </script>
 
 </body>
 </html>
