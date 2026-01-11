@@ -1,116 +1,779 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>CV Ibtissam El Asri</title>
-  <script src="https://cdn.tailwindcss.com"></script>
-  <style>
-    @media print {
-      body { background: white; }
-      .no-print { display: none; }
-    }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ibtissam El Asri - Portfolio</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600;1,700&display=swap" rel="stylesheet">
+    
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --color-primary: #0f172a;
+            --color-secondary: #3b82f6;
+            --color-accent: #f8fafc;
+            --color-muted: #64748b;
+            --color-white: #ffffff;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+            line-height: 1.6;
+            color: var(--color-primary);
+            background-color: var(--color-white);
+        }
+
+        /* Header */
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            background-color: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+            z-index: 1000;
+            transition: transform 0.3s ease;
+        }
+
+        nav {
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 1.5rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--color-primary);
+            text-decoration: none;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: var(--color-muted);
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s ease;
+            position: relative;
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: -4px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background-color: var(--color-secondary);
+            transition: width 0.3s ease;
+        }
+
+        .nav-links a:hover {
+            color: var(--color-secondary);
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        /* Hero Section */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 8rem 2rem 4rem;
+            background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
+        }
+
+        .hero h1 {
+            font-family: 'Playfair Display', Georgia, serif;
+            font-size: clamp(3rem, 8vw, 5rem);
+            font-style: italic;
+            font-weight: 400;
+            letter-spacing: 0.05em;
+            margin-bottom: 1.5rem;
+            background: linear-gradient(135deg, #0f172a 0%, #1e40af 50%, #3b82f6 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            animation: fadeInUp 0.8s ease 0.3s both;
+        }
+
+        .hero p {
+            font-size: clamp(1.125rem, 2vw, 1.5rem);
+            color: var(--color-muted);
+            max-width: 48rem;
+            margin: 0 auto 3rem;
+            animation: fadeInUp 0.8s ease 0.5s both;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+            justify-content: center;
+            animation: fadeInUp 0.8s ease 0.7s both;
+        }
+
+        .btn {
+            padding: 1rem 2rem;
+            border-radius: 0.5rem;
+            font-weight: 600;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            border: none;
+            font-size: 1rem;
+            display: inline-block;
+        }
+
+        .btn-primary {
+            background-color: var(--color-primary);
+            color: var(--color-white);
+        }
+
+        .btn-primary:hover {
+            background-color: var(--color-secondary);
+            transform: translateY(-2px);
+            box-shadow: 0 10px 25px rgba(59, 130, 246, 0.3);
+        }
+
+        .btn-secondary {
+            background-color: transparent;
+            color: var(--color-primary);
+            border: 2px solid var(--color-primary);
+        }
+
+        .btn-secondary:hover {
+            background-color: var(--color-primary);
+            color: var(--color-white);
+            transform: translateY(-2px);
+        }
+
+        /* Section Container */
+        section {
+            padding: 6rem 2rem;
+            max-width: 1280px;
+            margin: 0 auto;
+        }
+
+        .section-title {
+            font-size: clamp(2rem, 5vw, 3rem);
+            text-align: center;
+            margin-bottom: 1rem;
+            color: var(--color-primary);
+        }
+
+        .section-subtitle {
+            text-align: center;
+            color: var(--color-muted);
+            max-width: 48rem;
+            margin: 0 auto 3rem;
+        }
+
+        /* CV Section */
+        .cv-content {
+            background-color: var(--color-white);
+            border-radius: 1rem;
+            padding: 3rem;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+            max-width: 56rem;
+            margin: 0 auto;
+        }
+
+        .cv-header {
+            text-align: center;
+            margin-bottom: 3rem;
+            padding-bottom: 2rem;
+            border-bottom: 2px solid var(--color-accent);
+        }
+
+        .cv-header h2 {
+            font-size: 2rem;
+            color: var(--color-primary);
+            margin-bottom: 0.5rem;
+        }
+
+        .cv-header .contact-info {
+            color: var(--color-muted);
+            margin-top: 0.5rem;
+        }
+
+        .cv-section {
+            margin-bottom: 2.5rem;
+        }
+
+        .cv-section h3 {
+            font-size: 1.5rem;
+            color: var(--color-secondary);
+            margin-bottom: 1rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 2px solid var(--color-accent);
+        }
+
+        .cv-item {
+            margin-bottom: 1.5rem;
+        }
+
+        .cv-item h4 {
+            font-size: 1.125rem;
+            color: var(--color-primary);
+            margin-bottom: 0.25rem;
+        }
+
+        .cv-item .details {
+            color: var(--color-muted);
+            font-size: 0.875rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .cv-item ul {
+            list-style: none;
+            padding-left: 1.25rem;
+        }
+
+        .cv-item ul li {
+            position: relative;
+            padding-left: 1rem;
+            margin-bottom: 0.5rem;
+            color: var(--color-muted);
+        }
+
+        .cv-item ul li::before {
+            content: '•';
+            position: absolute;
+            left: 0;
+            color: var(--color-secondary);
+        }
+
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1rem;
+        }
+
+        .skill-item {
+            background-color: var(--color-accent);
+            padding: 1rem;
+            border-radius: 0.5rem;
+            transition: all 0.3s ease;
+        }
+
+        .skill-item:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        }
+
+        .skill-item strong {
+            color: var(--color-primary);
+            display: block;
+            margin-bottom: 0.25rem;
+        }
+
+        /* Kaggle Section */
+        .kaggle-section {
+            background: linear-gradient(135deg, var(--color-primary) 0%, #1e293b 100%);
+            padding: 6rem 2rem;
+            color: var(--color-white);
+        }
+
+        .kaggle-content {
+            max-width: 56rem;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .kaggle-section .section-title {
+            color: var(--color-white);
+        }
+
+        .kaggle-section .section-subtitle {
+            color: #cbd5e1;
+        }
+
+        .kaggle-stats {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin: 3rem 0;
+            flex-wrap: wrap;
+        }
+
+        .stat-card {
+            background-color: rgba(255, 255, 255, 0.1);
+            padding: 2rem;
+            border-radius: 1rem;
+            min-width: 200px;
+            transition: all 0.3s ease;
+        }
+
+        .stat-card:hover {
+            transform: scale(1.05);
+            background-color: rgba(255, 255, 255, 0.15);
+        }
+
+        .stat-card .number {
+            font-size: 3rem;
+            color: var(--color-secondary);
+            margin-bottom: 0.5rem;
+        }
+
+        .stat-card .label {
+            color: #cbd5e1;
+            font-size: 0.875rem;
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--color-primary);
+            color: var(--color-white);
+            padding: 4rem 2rem;
+            text-align: center;
+        }
+
+        .footer-content {
+            max-width: 1280px;
+            margin: 0 auto;
+        }
+
+        .footer-title {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+        }
+
+        .footer-subtitle {
+            color: #cbd5e1;
+            max-width: 36rem;
+            margin: 0 auto 3rem;
+        }
+
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 1.5rem;
+            margin-bottom: 3rem;
+        }
+
+        .social-icon {
+            width: 3.5rem;
+            height: 3.5rem;
+            background-color: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--color-white);
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+
+        .social-icon:hover {
+            background-color: var(--color-secondary);
+            transform: scale(1.1) rotate(5deg);
+        }
+
+        .footer-info {
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            padding-top: 2rem;
+            margin-top: 3rem;
+        }
+
+        .footer-info p {
+            color: #cbd5e1;
+            margin-bottom: 0.5rem;
+        }
+
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .fade-in {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.6s ease, transform 0.6s ease;
+        }
+
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            nav {
+                padding: 1rem;
+            }
+
+            .nav-links {
+                gap: 1rem;
+            }
+
+            .hero {
+                padding: 6rem 1rem 2rem;
+            }
+
+            .hero-buttons {
+                flex-direction: column;
+            }
+
+            .cv-content {
+                padding: 2rem 1.5rem;
+            }
+
+            section {
+                padding: 4rem 1rem;
+            }
+
+            .skills-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* Mobile menu toggle */
+        .menu-toggle {
+            display: none;
+            background: none;
+            border: none;
+            cursor: pointer;
+            padding: 0.5rem;
+        }
+
+        .menu-toggle span {
+            display: block;
+            width: 25px;
+            height: 3px;
+            background-color: var(--color-primary);
+            margin: 5px 0;
+            transition: 0.3s;
+        }
+
+        @media (max-width: 640px) {
+            .menu-toggle {
+                display: block;
+            }
+
+            .nav-links {
+                display: none;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                right: 0;
+                background-color: var(--color-white);
+                flex-direction: column;
+                padding: 2rem;
+                box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            }
+
+            .nav-links.active {
+                display: flex;
+            }
+        }
+    </style>
 </head>
-<body class="bg-gray-100 font-sans">
-
-  <div class="min-h-screen flex justify-center p-6">
-    <div class="bg-white shadow-xl p-8 w-full max-w-4xl border-t-8 border-blue-600">
-
-      <!-- Header -->
-      <div class="text-center mb-8">
-        <h1 class="text-4xl font-bold text-gray-800">Ibtissam El Asri</h1>
-        <p class="text-gray-600 mt-1">Salé Al Jadida – Maroc</p>
-        <p class="text-gray-600 mt-1">+212 672 907 305</p>
-        <p class="text-gray-600 mt-1">ibtissamelasri81@gmail.com</p>
-        <p class="mt-2">
-          <a href="https://www.kaggle.com/ibtissamelasri12" class="text-blue-600 underline">
-            Kaggle / Projets en ligne
-          </a>
-        </p>
-      </div>
-
-      <!-- Profil -->
-      <section class="mb-6">
-        <h2 class="text-2xl font-semibold mb-2">Profil</h2>
-        <p class="text-gray-700">
-          Étudiante en deuxième année de DUT, spécialité Marketing Digital et Commercial,
-          passionnée par la communication et le digital. Créative, organisée et orientée résultats,
-          je m’intéresse à la création de contenus, à la promotion de marques et à la relation client.
-          Mon objectif est d’attirer l’attention du consommateur, de valoriser l’image de l’entreprise
-          et de contribuer efficacement à ses actions marketing et commerciales lors d’un stage de
-          deux mois.
-        </p>
-      </section>
-
-      <!-- Formation -->
-      <section class="mb-6">
-        <h2 class="text-2xl font-semibold mb-2">Formation</h2>
-        <ul class="space-y-2">
-          <li class="p-3 bg-gray-50 rounded shadow-sm">
-            <strong>École Supérieure de Technologie de Salé (ESTS)</strong> – DUT Marketing Digital et Commercial (2025 – En cours)
-          </li>
-          <li class="p-3 bg-gray-50 rounded shadow-sm">
-            <strong>Lycée Mohamed El Bardouzi</strong> – Baccalauréat Sciences Économiques (2024)
-          </li>
-        </ul>
-      </section>
-
-      <!-- Compétences -->
-      <section class="mb-6">
-        <h2 class="text-2xl font-semibold mb-2">Compétences</h2>
-        <ul class="list-disc list-inside space-y-1 text-gray-700">
-          <li><strong>Marketing:</strong> Marketing digital, techniques commerciales, comportement du consommateur</li>
-          <li><strong>Bureautique:</strong> Word, Excel, PowerPoint</li>
-          <li><strong>Analyse de données:</strong> SPSS, NVivo</li>
-          <li><strong>Gestion de projet:</strong> Diagramme de Gantt</li>
-          <li><strong>Design:</strong> Canva</li>
-          <li><strong>Web:</strong> Création d’un site web (projet académique)</li>
-        </ul>
-      </section>
-
-      <!-- Expérience professionnelle -->
-      <section class="mb-6">
-        <h2 class="text-2xl font-semibold mb-2">Expérience professionnelle</h2>
-        <ul class="list-disc list-inside space-y-1 text-gray-700">
-          <li>
-            <strong>Autohaus MBH – Stage Service Après-Vente (Marketing et Commercial), Rabat (Juin – Juillet 2025)</strong>
-            <ul class="list-disc list-inside ml-5 mt-1 space-y-1">
-              <li>Enregistrement des marchandises utilisées pour chaque véhicule</li>
-              <li>Gestion et suivi du stock</li>
-              <li>Enregistrement des factures, devis, clients, véhicules et services</li>
-              <li>Utilisation d’Excel, du site Omega (RMA) et de l’application Autohaus</li>
-              <li>Suivi des procédures pour clients normaux et RMA</li>
+<body>
+    <!-- Header -->
+    <header id="header">
+        <nav>
+            <a href="#" class="logo">IE</a>
+            <button class="menu-toggle" id="menuToggle" aria-label="Toggle menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+            <ul class="nav-links" id="navLinks">
+                <li><a href="#home">Accueil</a></li>
+                <li><a href="#cv">CV</a></li>
+                <li><a href="#kaggle">Kaggle</a></li>
+                <li><a href="#contact">Contact</a></li>
             </ul>
-          </li>
-        </ul>
-      </section>
+        </nav>
+    </header>
 
-      <!-- Langues -->
-      <section class="mb-6">
-        <h2 class="text-2xl font-semibold mb-2">Langues</h2>
-        <ul class="list-disc list-inside text-gray-700 space-y-1">
-          <li>Arabe: Langue maternelle</li>
-          <li>Français: Bon niveau</li>
-          <li>Anglais: Niveau intermédiaire</li>
-        </ul>
-      </section>
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <h1>Marketeur Digital</h1>
+        <p>
+            Étudiante en marketing digital, passionnée par les stratégies innovantes 
+            et l'analyse de données pour optimiser les performances.
+        </p>
+        <div class="hero-buttons">
+            <a href="#cv" class="btn btn-primary">Voir mon CV</a>
+            <a href="#contact" class="btn btn-secondary">Me contacter</a>
+        </div>
+    </section>
 
-      <!-- Centres d’intérêt -->
-      <section class="mb-6">
-        <h2 class="text-2xl font-semibold mb-2">Centres d’intérêt</h2>
-        <p class="text-gray-700">Développement personnel, nouvelles technologies, événements culturels et sportifs</p>
-      </section>
+    <!-- CV Section -->
+    <section id="cv">
+        <h2 class="section-title fade-in">Curriculum Vitae</h2>
+        <p class="section-subtitle fade-in">Parcours académique et professionnel</p>
+        
+        <div class="cv-content fade-in">
+            <div class="cv-header">
+                <h2>Ibtissam El Asri</h2>
+                <div class="contact-info">
+                    <p>Salé Al Jadida – Maroc</p>
+                    <p>+212 672 907 305 • ibtissamelasri81@gmail.com</p>
+                </div>
+            </div>
 
-      <!-- Bouton PDF -->
-      <div class="text-center mt-8 no-print">
-        <button onclick="window.print()" class="bg-blue-600 text-white px-6 py-2 rounded-lg hover:bg-blue-700 transition font-semibold">
-          Télécharger
-        </button>
-      </div>
+            <!-- Profil -->
+            <div class="cv-section">
+                <h3>Profil</h3>
+                <p>
+                    Étudiante en deuxième année de DUT, spécialité Marketing Digital et Commercial, passionnée par la
+                    communication et le digital. Créative, organisée et orientée résultats, je m'intéresse à la création de
+                    contenus, à la promotion de marques et à la relation client. Mon objectif est d'attirer l'attention du
+                    consommateur, de valoriser l'image de l'entreprise et de contribuer efficacement à ses actions marketing et
+                    commerciales lors d'un stage de deux mois.
+                </p>
+            </div>
 
-    </div>
-  </div>
+            <!-- Formation -->
+            <div class="cv-section">
+                <h3>Formation</h3>
+                <div class="cv-item">
+                    <h4>École Supérieure de Technologie de Salé (ESTS)</h4>
+                    <p class="details">DUT Marketing Digital et Commercial • Salé • 2025 – En cours</p>
+                </div>
+                <div class="cv-item">
+                    <h4>Lycée Mohamed El Bardouzi</h4>
+                    <p class="details">Baccalauréat Sciences Économiques • Salé • 2024</p>
+                </div>
+            </div>
 
+            <!-- Compétences -->
+            <div class="cv-section">
+                <h3>Compétences</h3>
+                <div class="skills-grid">
+                    <div class="skill-item">
+                        <strong>Marketing</strong>
+                        <p>Marketing digital, techniques commerciales, comportement du consommateur</p>
+                    </div>
+                    <div class="skill-item">
+                        <strong>Bureautique</strong>
+                        <p>Word, Excel, PowerPoint</p>
+                    </div>
+                    <div class="skill-item">
+                        <strong>Analyse de données</strong>
+                        <p>SPSS, NVivo</p>
+                    </div>
+                    <div class="skill-item">
+                        <strong>Gestion de projet</strong>
+                        <p>Diagramme de Gantt</p>
+                    </div>
+                    <div class="skill-item">
+                        <strong>Design</strong>
+                        <p>Canva</p>
+                    </div>
+                    <div class="skill-item">
+                        <strong>Web</strong>
+                        <p>Création d'un site web (projet académique)</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Expérience professionnelle -->
+            <div class="cv-section">
+                <h3>Expérience professionnelle</h3>
+                <div class="cv-item">
+                    <h4>Autohaus MBH</h4>
+                    <p class="details">Stage – Service Après-Vente (Marketing et Commercial) • Rabat • Juin – Juillet 2025</p>
+                    <ul>
+                        <li>Enregistrement des marchandises utilisées pour chaque véhicule</li>
+                        <li>Gestion et suivi du stock</li>
+                        <li>Enregistrement des factures, devis, clients, véhicules et services</li>
+                        <li>Utilisation d'Excel, du site Omega (RMA) et de l'application Autohaus</li>
+                        <li>Suivi des procédures pour clients normaux et RMA</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Langues -->
+            <div class="cv-section">
+                <h3>Langues</h3>
+                <div class="skills-grid">
+                    <div class="skill-item">
+                        <strong>Arabe</strong>
+                        <p>Langue maternelle</p>
+                    </div>
+                    <div class="skill-item">
+                        <strong>Français</strong>
+                        <p>Bon niveau</p>
+                    </div>
+                    <div class="skill-item">
+                        <strong>Anglais</strong>
+                        <p>Niveau intermédiaire</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Centres d'intérêt -->
+            <div class="cv-section">
+                <h3>Centres d'intérêt</h3>
+                <p>Développement personnel, nouvelles technologies, événements culturels et sportifs</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Kaggle Section -->
+    <section id="kaggle" class="kaggle-section">
+        <div class="kaggle-content">
+            <h2 class="section-title fade-in">Mon Profil Kaggle</h2>
+            <p class="section-subtitle fade-in">
+                Explorez mon notebook d'analyse de données marketing sur Kaggle. 
+                Apprentissage continu pour améliorer mes compétences analytiques.
+            </p>
+            
+            <div class="kaggle-stats fade-in">
+                <div class="stat-card">
+                    <div class="number">1</div>
+                    <div class="label">Notebook</div>
+                </div>
+            </div>
+
+            <a href="https://www.kaggle.com/ibtissamelasri12" target="_blank" rel="noopener noreferrer" class="btn btn-primary">
+                Voir mon profil Kaggle
+            </a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer id="contact">
+        <div class="footer-content">
+            <h2 class="footer-title fade-in">Restons en Contact</h2>
+            <p class="footer-subtitle fade-in">
+                N'hésitez pas à me contacter pour toute opportunité ou collaboration
+            </p>
+
+            <div class="social-links fade-in">
+                <a href="mailto:ibtissamelasri81@gmail.com" class="social-icon" aria-label="Email">
+                    <svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
+                        <path d="m22 6-10 7L2 6"/>
+                    </svg>
+                </a>
+                <a href="https://www.kaggle.com/ibtissamelasri12" target="_blank" rel="noopener noreferrer" class="social-icon" aria-label="Kaggle">
+                    <svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/>
+                        <path d="M15 3h6v6"/>
+                        <path d="m10 14 11-11"/>
+                    </svg>
+                </a>
+            </div>
+
+            <div class="footer-info fade-in">
+                <p><strong>Ibtissam El Asri</strong> - Marketeur Digital</p>
+                <p>&copy; <span id="year"></span> Portfolio. Tous droits réservés.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Current year
+        document.getElementById('year').textContent = new Date().getFullYear();
+
+        // Mobile menu toggle
+        const menuToggle = document.getElementById('menuToggle');
+        const navLinks = document.getElementById('navLinks');
+
+        menuToggle.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+        });
+
+        // Close menu when clicking on a link
+        navLinks.querySelectorAll('a').forEach(link => {
+            link.addEventListener('click', () => {
+                navLinks.classList.remove('active');
+            });
+        });
+
+        // Smooth scrolling
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    const headerOffset = 80;
+                    const elementPosition = target.getBoundingClientRect().top;
+                    const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+
+                    window.scrollTo({
+                        top: offsetPosition,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+
+        // Scroll animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.fade-in').forEach(el => {
+            observer.observe(el);
+        });
+
+        // Header hide on scroll down, show on scroll up
+        let lastScroll = 0;
+        const header = document.getElementById('header');
+
+        window.addEventListener('scroll', () => {
+            const currentScroll = window.pageYOffset;
+
+            if (currentScroll <= 0) {
+                header.style.transform = 'translateY(0)';
+                return;
+            }
+
+            if (currentScroll > lastScroll && currentScroll > 100) {
+                // Scroll down
+                header.style.transform = 'translateY(-100%)';
+            } else {
+                // Scroll up
+                header.style.transform = 'translateY(0)';
+            }
+
+            lastScroll = currentScroll;
+        });
+    </script>
 </body>
 </html>
